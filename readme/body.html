@@ -12,7 +12,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, &#39;Noto Sans&#39;, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.5;
@@ -35,7 +35,7 @@ body {
 }
 
 /* Dark mode variables */
-[data-theme=&#34;dark&#34;] {
+[data-theme="dark"] {
     --bg-primary: #0d1117;
     --bg-secondary: #161b22;
     --bg-tertiary: #21262d;
@@ -357,7 +357,7 @@ a:hover {
     overflow-y: auto;
 }
 
-[data-theme=&#34;dark&#34;] .outline-menu {
+[data-theme="dark"] .outline-menu {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
@@ -674,7 +674,7 @@ a:hover {
                     <span id="theme-icon">🌙</span>
                 </button>
                 <button class="language-switch" onclick="toggleLanguage()">
-                    <span id="lang-text">中文</span>
+                    <span id="lang-text">English</span>
                 </button>
             </div>
         </div>
@@ -684,19 +684,19 @@ a:hover {
                 <div class="readme-tabs">
                     <button class="readme-tab active" onclick="showContent('readme')">
                         <span class="tab-icon">📖</span>
-                        <span id="readme-tab">README</span>
+                        <span id="readme-tab">说明文档</span>
                     </button>
                     <button class="readme-tab" onclick="showContent('conduct')">
                         <span class="tab-icon">🤝</span>
-                        <span id="conduct-tab">Code of Conduct</span>
+                        <span id="conduct-tab">行为准则</span>
                     </button>
                     <a href="https://codekitchen.community/c/blog" class="readme-tab">
                         <span class="tab-icon">📰</span>
-                        <span id="blog-tab">Blog</span>
+                        <span id="blog-tab">博客</span>
                     </a>
                     <a href="https://codekitchen.community" target="_blank" class="readme-tab">
                         <span class="tab-icon">🔙</span>
-                        <span id="home-tab">Back to Community</span>
+                        <span id="home-tab">返回社区</span>
                     </a>
                 </div>
                 <div class="readme-controls">
@@ -709,7 +709,7 @@ a:hover {
                         </button>
                         <div class="outline-menu" id="outline-menu">
                             <div class="outline-menu-header">
-                                <span id="outline-title">Outline</span>
+                                <span id="outline-title">大纲</span>
                             </div>
                             <div class="outline-menu-content" id="outline-content">
                                 <!-- Outline items will be dynamically generated -->
@@ -724,7 +724,7 @@ a:hover {
                 <div id="readme-content" class="content active">
                     
                     <!-- English README Content -->
-                    <div id="readme-english" class="content active">
+                    <div id="readme-english" class="content">
                         
 <h1 id="codekitchen-community">
     <a href="#codekitchen-community" class="anchor">#</a>
@@ -944,7 +944,7 @@ a:hover {
                     </div>
 
                      <!-- Chinese README -->
-                    <div id="readme-chinese" class="content">
+                    <div id="readme-chinese" class="content active">
                         
 <h1 id="代码厨房社区">
     <a href="#代码厨房社区" class="anchor">#</a>
@@ -1297,7 +1297,7 @@ a:hover {
                     </div>
 
                     <!-- Chinese Code of Conduct -->
-                    <div id="conduct-chinese" class="content">
+                    <div id="conduct-chinese" class="content active">
                         
 <h1 id="行为准则">
     <a href="#行为准则" class="anchor">#</a>
@@ -1440,66 +1440,85 @@ a:hover {
     </div>
 
     <script>
-let currentLanguage = &#39;en&#39;;
-let currentTheme = &#39;light&#39;;
+// Detect browser locale and set default language
+function detectBrowserLocale() {
+    const browserLang = navigator.language || navigator.userLanguage;
+    console.log('Browser language detected:', browserLang);
+    
+    // Check for English variants
+    if (browserLang.toLowerCase().startsWith('en')) {
+        return 'en';
+    }
+    
+    // Check for Chinese variants (zh, zh-CN, zh-TW, zh-HK, etc.)
+    if (browserLang.toLowerCase().startsWith('zh')) {
+        return 'zh';
+    }
+    
+    // Default to Chinese for all other languages
+    return 'zh';
+}
+
+let currentLanguage = detectBrowserLocale();
+let currentTheme = 'light';
 let outlineOpen = false;
-let currentTab = &#39;readme&#39;;
+let currentTab = 'readme';
 
 function showContent(tabName) {
-    console.log(&#39;showContent called with:&#39;, tabName); // Debug log
+    console.log('showContent called with:', tabName); // Debug log
     
     // Remove active state from all tabs
-    document.querySelectorAll(&#39;.readme-tab&#39;).forEach(tab =&gt; {
-        tab.classList.remove(&#39;active&#39;);
+    document.querySelectorAll('.readme-tab').forEach(tab => {
+        tab.classList.remove('active');
     });
     
     // Hide all main content sections
-    const readmeContent = document.getElementById(&#39;readme-content&#39;);
-    const conductContent = document.getElementById(&#39;conduct-content&#39;);
+    const readmeContent = document.getElementById('readme-content');
+    const conductContent = document.getElementById('conduct-content');
     
-    if (readmeContent) readmeContent.style.display = &#39;none&#39;;
-    if (conductContent) conductContent.style.display = &#39;none&#39;;
+    if (readmeContent) readmeContent.style.display = 'none';
+    if (conductContent) conductContent.style.display = 'none';
     
     // Show selected content
-    if (tabName === &#39;readme&#39;) {
+    if (tabName === 'readme') {
         if (readmeContent) {
-            readmeContent.style.display = &#39;block&#39;;
-            currentTab = &#39;readme&#39;;
-            if (currentLanguage === &#39;en&#39;) {
-                document.getElementById(&#39;readme-chinese&#39;).classList.remove(&#39;active&#39;);
-                document.getElementById(&#39;readme-english&#39;).classList.add(&#39;active&#39;);
+            readmeContent.style.display = 'block';
+            currentTab = 'readme';
+            if (currentLanguage === 'en') {
+                document.getElementById('readme-chinese').classList.remove('active');
+                document.getElementById('readme-english').classList.add('active');
             } else {
-                document.getElementById(&#39;readme-english&#39;).classList.remove(&#39;active&#39;);
-                document.getElementById(&#39;readme-chinese&#39;).classList.add(&#39;active&#39;);
+                document.getElementById('readme-english').classList.remove('active');
+                document.getElementById('readme-chinese').classList.add('active');
             }
         }
-    } else if (tabName === &#39;conduct&#39;) {
+    } else if (tabName === 'conduct') {
         if (conductContent) {
-            conductContent.style.display = &#39;block&#39;;
-            currentTab = &#39;conduct&#39;;
-            if (currentLanguage === &#39;en&#39;) {
+            conductContent.style.display = 'block';
+            currentTab = 'conduct';
+            if (currentLanguage === 'en') {
                 // Switch to Chinese
-                document.getElementById(&#39;conduct-chinese&#39;).classList.remove(&#39;active&#39;);
-                document.getElementById(&#39;conduct-english&#39;).classList.add(&#39;active&#39;);
+                document.getElementById('conduct-chinese').classList.remove('active');
+                document.getElementById('conduct-english').classList.add('active');
             } else {
                 // Switch to English
-                document.getElementById(&#39;conduct-english&#39;).classList.remove(&#39;active&#39;);
-                document.getElementById(&#39;conduct-chinese&#39;).classList.add(&#39;active&#39;);
+                document.getElementById('conduct-english').classList.remove('active');
+                document.getElementById('conduct-chinese').classList.add('active');
             }
         }
     }
     
     // Set active tab for the clicked button
-    if (event &amp;&amp; event.target) {
-        const clickedButton = event.target.closest(&#39;.readme-tab&#39;);
+    if (event && event.target) {
+        const clickedButton = event.target.closest('.readme-tab');
         if (clickedButton) {
-            clickedButton.classList.add(&#39;active&#39;);
+            clickedButton.classList.add('active');
         }
     } else {
         // Fallback: find the button by onclick attribute
-        const targetButton = document.querySelector(`[onclick*=&#34;showContent(&#39;${tabName}&#39;)&#34;]`);
+        const targetButton = document.querySelector(`[onclick*="showContent('${tabName}')"]`);
         if (targetButton) {
-            targetButton.classList.add(&#39;active&#39;);
+            targetButton.classList.add('active');
         }
     }
     
@@ -1510,7 +1529,7 @@ function showContent(tabName) {
 }
 
 function toggleOutline() {
-    const menu = document.getElementById(&#39;outline-menu&#39;);
+    const menu = document.getElementById('outline-menu');
     
     if (outlineOpen) {
         closeOutline();
@@ -1520,81 +1539,81 @@ function toggleOutline() {
 }
 
 function openOutline() {
-    const menu = document.getElementById(&#39;outline-menu&#39;);
+    const menu = document.getElementById('outline-menu');
     
     generateOutline();
-    menu.classList.add(&#39;open&#39;);
+    menu.classList.add('open');
     outlineOpen = true;
     
     // Close when clicking outside
-    setTimeout(() =&gt; {
-        document.addEventListener(&#39;click&#39;, handleOutsideClick);
+    setTimeout(() => {
+        document.addEventListener('click', handleOutsideClick);
     }, 10);
 }
 
 function closeOutline() {
-    const menu = document.getElementById(&#39;outline-menu&#39;);
+    const menu = document.getElementById('outline-menu');
     
-    menu.classList.remove(&#39;open&#39;);
+    menu.classList.remove('open');
     outlineOpen = false;
     
     // Remove outside click listener
-    document.removeEventListener(&#39;click&#39;, handleOutsideClick);
+    document.removeEventListener('click', handleOutsideClick);
 }
 
 function handleOutsideClick(event) {
-    const dropdown = document.querySelector(&#39;.outline-dropdown&#39;);
+    const dropdown = document.querySelector('.outline-dropdown');
     if (!dropdown || !dropdown.contains(event.target)) {
         closeOutline();
     }
 }
 
 function generateOutline() {
-    const outlineContent = document.getElementById(&#39;outline-content&#39;);
+    const outlineContent = document.getElementById('outline-content');
     
     // Determine which content is currently active
     let activeContent;
-    if (currentTab === &#39;conduct&#39;) {
-        if (currentLanguage === &#39;en&#39;) {
-            activeContent = document.getElementById(&#39;conduct-english&#39;);
+    if (currentTab === 'conduct') {
+        if (currentLanguage === 'en') {
+            activeContent = document.getElementById('conduct-english');
         } else {
-            activeContent = document.getElementById(&#39;conduct-chinese&#39;);
+            activeContent = document.getElementById('conduct-chinese');
         }
     } else {
         // For README tab, use the appropriate language content
-        if (currentLanguage === &#39;en&#39;) {
-            activeContent = document.getElementById(&#39;readme-english&#39;);
+        if (currentLanguage === 'en') {
+            activeContent = document.getElementById('readme-english');
         } else {
-            activeContent = document.getElementById(&#39;readme-chinese&#39;);
+            activeContent = document.getElementById('readme-chinese');
         }
     }
     
     if (!activeContent) return;
     
-    const headings = activeContent.querySelectorAll(&#39;h1, h2, h3&#39;);
+    const headings = activeContent.querySelectorAll('h1, h2, h3');
     
-    outlineContent.innerHTML = &#39;&#39;;
+    outlineContent.innerHTML = '';
     
-    headings.forEach(heading =&gt; {
-        const item = document.createElement(&#39;div&#39;);
+    headings.forEach(heading => {
+        const item = document.createElement('div');
         item.className = `outline-menu-item ${heading.tagName.toLowerCase()}`;
-        item.textContent = heading.textContent.replace(&#39;#&#39;, &#39;&#39;).trim();
+        item.textContent = heading.textContent.replace('#', '').trim();
         
-        // Create anchor ID if it doesn&#39;t exist
+        // Create anchor ID if it doesn't exist
         if (!heading.id) {
-            const anchorLink = heading.querySelector(&#39;.anchor&#39;);
+            const anchorLink = heading.querySelector('.anchor');
             if (anchorLink) {
-                const href = anchorLink.getAttribute(&#39;href&#39;);
+                const href = anchorLink.getAttribute('href');
                 if (href) {
                     heading.id = href.substring(1);
                 }
             }
         }
         
-        item.addEventListener(&#39;click&#39;, function(e) {
+        item.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            heading.scrollIntoView({ behavior: &#39;smooth&#39; });
+            heading.scrollIntoView({ behavior: 'smooth' });
             closeOutline();
         });
         
@@ -1603,107 +1622,149 @@ function generateOutline() {
 }
 
 function updateOutlineLanguage() {
-    const outlineTitle = document.getElementById(&#39;outline-title&#39;);
-    if (currentLanguage === &#39;zh&#39;) {
-        outlineTitle.textContent = &#39;大纲&#39;;
+    const outlineTitle = document.getElementById('outline-title');
+    if (currentLanguage === 'zh') {
+        outlineTitle.textContent = '大纲';
     } else {
-        outlineTitle.textContent = &#39;Outline&#39;;
+        outlineTitle.textContent = 'Outline';
     }
 }
 
 function toggleTheme() {
     const body = document.body;
-    const themeIcon = document.getElementById(&#39;theme-icon&#39;);
+    const themeIcon = document.getElementById('theme-icon');
     
-    if (currentTheme === &#39;light&#39;) {
-        body.setAttribute(&#39;data-theme&#39;, &#39;dark&#39;);
-        themeIcon.textContent = &#39;☀️&#39;;
-        currentTheme = &#39;dark&#39;;
+    if (currentTheme === 'light') {
+        body.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '☀️';
+        currentTheme = 'dark';
     } else {
-        body.removeAttribute(&#39;data-theme&#39;);
-        themeIcon.textContent = &#39;🌙&#39;;
-        currentTheme = &#39;light&#39;;
+        body.removeAttribute('data-theme');
+        themeIcon.textContent = '🌙';
+        currentTheme = 'light';
     }
 }
 
 function toggleLanguage() {
-    const langText = document.getElementById(&#39;lang-text&#39;);
+    const langText = document.getElementById('lang-text');
     
-    if (currentLanguage === &#39;en&#39;) {
+    if (currentLanguage === 'en') {
         // Switch to Chinese
-        document.getElementById(&#39;readme-english&#39;).classList.remove(&#39;active&#39;);
-        document.getElementById(&#39;readme-chinese&#39;).classList.add(&#39;active&#39;);
-        document.getElementById(&#39;conduct-english&#39;).classList.remove(&#39;active&#39;);
-        document.getElementById(&#39;conduct-chinese&#39;).classList.add(&#39;active&#39;);
-        langText.textContent = &#39;English&#39;;
-        currentLanguage = &#39;zh&#39;;
+        document.getElementById('readme-english').classList.remove('active');
+        document.getElementById('readme-chinese').classList.add('active');
+        document.getElementById('conduct-english').classList.remove('active');
+        document.getElementById('conduct-chinese').classList.add('active');
+        langText.textContent = 'English';
+        currentLanguage = 'zh';
         
         // Update tab text
-        document.getElementById(&#39;readme-tab&#39;).textContent = &#39;说明文档&#39;;
-        document.getElementById(&#39;conduct-tab&#39;).textContent = &#39;行为准则&#39;;
-        document.getElementById(&#39;blog-tab&#39;).textContent = &#39;博客&#39;;
-        document.getElementById(&#39;home-tab&#39;).textContent = &#39;返回社区&#39;;
+        document.getElementById('readme-tab').textContent = '说明文档';
+        document.getElementById('conduct-tab').textContent = '行为准则';
+        document.getElementById('blog-tab').textContent = '博客';
+        document.getElementById('home-tab').textContent = '返回社区';
     } else {
         // Switch to English
-        document.getElementById(&#39;readme-chinese&#39;).classList.remove(&#39;active&#39;);
-        document.getElementById(&#39;readme-english&#39;).classList.add(&#39;active&#39;);
-        document.getElementById(&#39;conduct-chinese&#39;).classList.remove(&#39;active&#39;);
-        document.getElementById(&#39;conduct-english&#39;).classList.add(&#39;active&#39;);
-        langText.textContent = &#39;中文&#39;;
-        currentLanguage = &#39;en&#39;;
+        document.getElementById('readme-chinese').classList.remove('active');
+        document.getElementById('readme-english').classList.add('active');
+        document.getElementById('conduct-chinese').classList.remove('active');
+        document.getElementById('conduct-english').classList.add('active');
+        langText.textContent = '中文';
+        currentLanguage = 'en';
         
         // Update tab text
-        document.getElementById(&#39;readme-tab&#39;).textContent = &#39;README&#39;;
-        document.getElementById(&#39;conduct-tab&#39;).textContent = &#39;Code of Conduct&#39;;
-        document.getElementById(&#39;blog-tab&#39;).textContent = &#39;Blog&#39;;
-        document.getElementById(&#39;home-tab&#39;).textContent = &#39;Back to Community&#39;;
+        document.getElementById('readme-tab').textContent = 'README';
+        document.getElementById('conduct-tab').textContent = 'Code of Conduct';
+        document.getElementById('blog-tab').textContent = 'Blog';
+        document.getElementById('home-tab').textContent = 'Back to Community';
     }
     
     // Restore the correct content based on current tab
-    setTimeout(() =&gt; {
-        if (currentTab === &#39;readme&#39;) {
-            showContent(&#39;readme&#39;);
-        } else if (currentTab === &#39;conduct&#39;) {
-            showContent(&#39;conduct&#39;);
+    setTimeout(() => {
+        if (currentTab === 'readme') {
+            showContent('readme');
+        } else if (currentTab === 'conduct') {
+            showContent('conduct');
         }
     }, 0);
     
     // Update outline language
     updateOutlineLanguage();
     
-    // Regenerate outline if it&#39;s open
+    // Regenerate outline if it's open
     if (outlineOpen) {
         generateOutline();
     }
 }
 
+// Initialize page based on detected language
+function initializePage() {
+    console.log('Initializing page with language:', currentLanguage);
+    
+    // Set initial UI text and language button
+    const langText = document.getElementById('lang-text');
+    
+    if (currentLanguage === 'zh') {
+        // Show Chinese content by default
+        document.getElementById('readme-english')?.classList.remove('active');
+        document.getElementById('readme-chinese')?.classList.add('active');
+        document.getElementById('conduct-english')?.classList.remove('active');
+        document.getElementById('conduct-chinese')?.classList.add('active');
+        
+        // Set UI text to Chinese
+        if (langText) langText.textContent = 'English';
+        document.getElementById('readme-tab').textContent = '说明文档';
+        document.getElementById('conduct-tab').textContent = '行为准则';
+        document.getElementById('blog-tab').textContent = '博客';
+        document.getElementById('home-tab').textContent = '返回社区';
+    } else {
+        // Show English content by default
+        document.getElementById('readme-chinese')?.classList.remove('active');
+        document.getElementById('readme-english')?.classList.add('active');
+        document.getElementById('conduct-chinese')?.classList.remove('active');
+        document.getElementById('conduct-english')?.classList.add('active');
+        
+        // Set UI text to English
+        if (langText) langText.textContent = '中文';
+        document.getElementById('readme-tab').textContent = 'README';
+        document.getElementById('conduct-tab').textContent = 'Code of Conduct';
+        document.getElementById('blog-tab').textContent = 'Blog';
+        document.getElementById('home-tab').textContent = 'Back to Community';
+    }
+    
+    // Update outline language
+    updateOutlineLanguage();
+}
+
 // Smooth scrolling for anchor links
-document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
-    document.querySelectorAll(&#39;a[href^=&#34;#&#34;]&#39;).forEach(anchor =&gt; {
-        anchor.addEventListener(&#39;click&#39;, function (e) {
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize page with detected language
+    initializePage();
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute(&#39;href&#39;));
+            const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 target.scrollIntoView({
-                    behavior: &#39;smooth&#39;
+                    behavior: 'smooth'
                 });
             }
         });
     });
 
     // Add hover effects to headings
-    document.querySelectorAll(&#39;h1, h2, h3&#39;).forEach(heading =&gt; {
-        heading.addEventListener(&#39;mouseenter&#39;, function() {
-            const anchor = this.querySelector(&#39;.anchor&#39;);
+    document.querySelectorAll('h1, h2, h3').forEach(heading => {
+        heading.addEventListener('mouseenter', function() {
+            const anchor = this.querySelector('.anchor');
             if (anchor) {
-                anchor.style.opacity = &#39;1&#39;;
+                anchor.style.opacity = '1';
             }
         });
         
-        heading.addEventListener(&#39;mouseleave&#39;, function() {
-            const anchor = this.querySelector(&#39;.anchor&#39;);
+        heading.addEventListener('mouseleave', function() {
+            const anchor = this.querySelector('.anchor');
             if (anchor) {
-                anchor.style.opacity = &#39;0&#39;;
+                anchor.style.opacity = '0';
             }
         });
     });

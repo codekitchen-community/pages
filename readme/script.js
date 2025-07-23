@@ -1,4 +1,23 @@
-let currentLanguage = 'en';
+// Detect browser locale and set default language
+function detectBrowserLocale() {
+    const browserLang = navigator.language || navigator.userLanguage;
+    console.log('Browser language detected:', browserLang);
+    
+    // Check for English variants
+    if (browserLang.toLowerCase().startsWith('en')) {
+        return 'en';
+    }
+    
+    // Check for Chinese variants (zh, zh-CN, zh-TW, zh-HK, etc.)
+    if (browserLang.toLowerCase().startsWith('zh')) {
+        return 'zh';
+    }
+    
+    // Default to Chinese for all other languages
+    return 'zh';
+}
+
+let currentLanguage = detectBrowserLocale();
 let currentTheme = 'light';
 let outlineOpen = false;
 let currentTab = 'readme';
@@ -235,8 +254,50 @@ function toggleLanguage() {
     }
 }
 
+// Initialize page based on detected language
+function initializePage() {
+    console.log('Initializing page with language:', currentLanguage);
+    
+    // Set initial UI text and language button
+    const langText = document.getElementById('lang-text');
+    
+    if (currentLanguage === 'zh') {
+        // Show Chinese content by default
+        document.getElementById('readme-english')?.classList.remove('active');
+        document.getElementById('readme-chinese')?.classList.add('active');
+        document.getElementById('conduct-english')?.classList.remove('active');
+        document.getElementById('conduct-chinese')?.classList.add('active');
+        
+        // Set UI text to Chinese
+        if (langText) langText.textContent = 'English';
+        document.getElementById('readme-tab').textContent = '说明文档';
+        document.getElementById('conduct-tab').textContent = '行为准则';
+        document.getElementById('blog-tab').textContent = '博客';
+        document.getElementById('home-tab').textContent = '返回社区';
+    } else {
+        // Show English content by default
+        document.getElementById('readme-chinese')?.classList.remove('active');
+        document.getElementById('readme-english')?.classList.add('active');
+        document.getElementById('conduct-chinese')?.classList.remove('active');
+        document.getElementById('conduct-english')?.classList.add('active');
+        
+        // Set UI text to English
+        if (langText) langText.textContent = '中文';
+        document.getElementById('readme-tab').textContent = 'README';
+        document.getElementById('conduct-tab').textContent = 'Code of Conduct';
+        document.getElementById('blog-tab').textContent = 'Blog';
+        document.getElementById('home-tab').textContent = 'Back to Community';
+    }
+    
+    // Update outline language
+    updateOutlineLanguage();
+}
+
 // Smooth scrolling for anchor links
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize page with detected language
+    initializePage();
+    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();

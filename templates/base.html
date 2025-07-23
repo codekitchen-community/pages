@@ -22,7 +22,7 @@
                     <span id="theme-icon">{{ ui_text.en.theme_toggle }}</span>
                 </button>
                 <button class="language-switch" onclick="toggleLanguage()">
-                    <span id="lang-text">{{ ui_text.en.language_switch }}</span>
+                    <span id="lang-text">{{ ui_text.zh.language_switch }}</span>
                 </button>
             </div>
         </div>
@@ -32,19 +32,19 @@
                 <div class="readme-tabs">
                     <button class="readme-tab active" onclick="showContent('readme')">
                         <span class="tab-icon">📖</span>
-                        <span id="readme-tab">{{ ui_text.en.readme_tab }}</span>
+                        <span id="readme-tab">{{ ui_text.zh.readme_tab }}</span>
                     </button>
                     <button class="readme-tab" onclick="showContent('conduct')">
                         <span class="tab-icon">🤝</span>
-                        <span id="conduct-tab">{{ ui_text.en.conduct_tab }}</span>
+                        <span id="conduct-tab">{{ ui_text.zh.conduct_tab }}</span>
                     </button>
                     <a href="https://codekitchen.community/c/blog" class="readme-tab">
                         <span class="tab-icon">📰</span>
-                        <span id="blog-tab">{{ ui_text.en.blog_tab }}</span>
+                        <span id="blog-tab">{{ ui_text.zh.blog_tab }}</span>
                     </a>
                     <a href="{{ site.home_url }}" target="_blank" class="readme-tab">
                         <span class="tab-icon">🔙</span>
-                        <span id="home-tab">{{ ui_text.en.home_tab }}</span>
+                        <span id="home-tab">{{ ui_text.zh.home_tab }}</span>
                     </a>
                 </div>
                 <div class="readme-controls">
@@ -57,7 +57,7 @@
                         </button>
                         <div class="outline-menu" id="outline-menu">
                             <div class="outline-menu-header">
-                                <span id="outline-title">{{ ui_text.en.outline_title }}</span>
+                                <span id="outline-title">{{ ui_text.zh.outline_title }}</span>
                             </div>
                             <div class="outline-menu-content" id="outline-content">
                                 <!-- Outline items will be dynamically generated -->
@@ -72,12 +72,12 @@
                 <div id="readme-content" class="content active">
                     
                     <!-- English README Content -->
-                    <div id="readme-english" class="content active">
+                    <div id="readme-english" class="content">
                         {% include page_name + '/readme_section.html' %}
                     </div>
 
                      <!-- Chinese README -->
-                    <div id="readme-chinese" class="content">
+                    <div id="readme-chinese" class="content active">
                         {% include page_name + '/readme_section_zh.html' %}
                     </div> 
                 </div>
@@ -89,7 +89,7 @@
                     </div>
 
                     <!-- Chinese Code of Conduct -->
-                    <div id="conduct-chinese" class="content">
+                    <div id="conduct-chinese" class="content active">
                         {% include page_name + '/conduct_section_zh.html' %}
                     </div>
                 </div>
