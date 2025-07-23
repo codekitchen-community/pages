@@ -1,0 +1,36 @@
+{% set conduct = code_of_conduct.en %}
+<h1 id="{{ conduct.title|lower|replace(' ', '-') }}">
+    <a href="#{{ conduct.title|lower|replace(' ', '-') }}" class="anchor">#</a>
+    {{ conduct.title }}
+</h1>
+
+{% for section in conduct.sections %}
+    {% if section.id and section.title %}
+        <h2 id="{{ section.id }}">
+            <a href="#{{ section.id }}" class="anchor">#</a>
+            {{ section.title }}
+        </h2>
+    {% endif %}
+    
+    {% for content in section.content %}
+        <p>{{ content|safe }}</p>
+    {% endfor %}
+    
+    {% if section.highlight_box %}
+        <div class="highlight-box">
+            <p>{{ section.highlight_box|safe }}</p>
+        </div>
+    {% endif %}
+    
+    {% if section.content_after %}
+        {% for content in section.content_after %}
+            <p>{{ content|safe }}</p>
+        {% endfor %}
+    {% endif %}
+    
+    {% if section.contact_info %}
+        <div class="contact-info">
+            <p>{{ section.contact_info|safe }}</p>
+        </div>
+    {% endif %}
+{% endfor %}
