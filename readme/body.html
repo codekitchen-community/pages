@@ -946,8 +946,8 @@ a:hover {
                      <!-- Chinese README -->
                     <div id="readme-chinese" class="content active">
                         
-<h1 id="代码厨房社区">
-    <a href="#代码厨房社区" class="anchor">#</a>
+<h1 id="codekitchen-community">
+    <a href="#codekitchen-community" class="anchor">#</a>
     代码厨房社区
 </h1>
 
@@ -960,8 +960,8 @@ a:hover {
 
     
         
-            <h2 id="关于我们">
-                <a href="#关于我们" class="anchor">#</a>
+            <h2 id="about-us">
+                <a href="#about-us" class="anchor">#</a>
                 关于我们
             </h2>
         
@@ -977,8 +977,8 @@ a:hover {
 
     
         
-            <h2 id="社交媒体">
-                <a href="#社交媒体" class="anchor">#</a>
+            <h2 id="social-media">
+                <a href="#social-media" class="anchor">#</a>
                 社交媒体
             </h2>
         
@@ -1085,8 +1085,8 @@ a:hover {
 
     
         
-            <h2 id="合作联系">
-                <a href="#合作联系" class="anchor">#</a>
+            <h2 id="contact-collaboration">
+                <a href="#contact-collaboration" class="anchor">#</a>
                 合作联系
             </h2>
         
@@ -1105,8 +1105,8 @@ a:hover {
 
     
         
-            <h2 id="我们的使命">
-                <a href="#我们的使命" class="anchor">#</a>
+            <h2 id="our-mission">
+                <a href="#our-mission" class="anchor">#</a>
                 我们的使命
             </h2>
         
@@ -1144,8 +1144,8 @@ a:hover {
 
     
         
-            <h2 id="参与其中">
-                <a href="#参与其中" class="anchor">#</a>
+            <h2 id="get-involved">
+                <a href="#get-involved" class="anchor">#</a>
                 参与其中
             </h2>
         
@@ -1299,15 +1299,15 @@ a:hover {
                     <!-- Chinese Code of Conduct -->
                     <div id="conduct-chinese" class="content active">
                         
-<h1 id="行为准则">
-    <a href="#行为准则" class="anchor">#</a>
+<h1 id="code-of-conduct">
+    <a href="#code-of-conduct" class="anchor">#</a>
     行为准则
 </h1>
 
 
     
-        <h2 id="我们的承诺">
-            <a href="#我们的承诺" class="anchor">#</a>
+        <h2 id="our-pledge">
+            <a href="#our-pledge" class="anchor">#</a>
             我们的承诺
         </h2>
     
@@ -1325,8 +1325,8 @@ a:hover {
     
 
     
-        <h2 id="我们的标准">
-            <a href="#我们的标准" class="anchor">#</a>
+        <h2 id="our-standards">
+            <a href="#our-standards" class="anchor">#</a>
             我们的标准
         </h2>
     
@@ -1354,8 +1354,8 @@ a:hover {
     
 
     
-        <h2 id="执行责任">
-            <a href="#执行责任" class="anchor">#</a>
+        <h2 id="enforcement-responsibilities">
+            <a href="#enforcement-responsibilities" class="anchor">#</a>
             执行责任
         </h2>
     
@@ -1373,8 +1373,8 @@ a:hover {
     
 
     
-        <h2 id="适用范围">
-            <a href="#适用范围" class="anchor">#</a>
+        <h2 id="scope">
+            <a href="#scope" class="anchor">#</a>
             适用范围
         </h2>
     
@@ -1390,8 +1390,8 @@ a:hover {
     
 
     
-        <h2 id="执行">
-            <a href="#执行" class="anchor">#</a>
+        <h2 id="enforcement">
+            <a href="#enforcement" class="anchor">#</a>
             执行
         </h2>
     
@@ -1409,8 +1409,8 @@ a:hover {
     
 
     
-        <h2 id="来源">
-            <a href="#来源" class="anchor">#</a>
+        <h2 id="attribution">
+            <a href="#attribution" class="anchor">#</a>
             来源
         </h2>
     
@@ -1802,8 +1802,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            const target = document.querySelector(href);
             if (target) {
+                // Update URL hash
+                history.pushState(null, null, href);
+                
+                // Smooth scroll to target
                 target.scrollIntoView({
                     behavior: 'smooth'
                 });

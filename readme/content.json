@@ -143,7 +143,7 @@
           "content": "<strong>代码厨房（CodeKitchen Community）</strong>是一个由编程和和开源爱好者组成的社区。社区的主体是 <a href=\"https://codekitchen.community\" target=\"_blank\">https://codekitchen.community</a> 网站。"
         },
         {
-          "id": "关于我们",
+          "id": "about-us",
           "title": "关于我们",
           "type": "section",
           "content": [
@@ -152,7 +152,7 @@
           ]
         },
         {
-          "id": "社交媒体",
+          "id": "social-media",
           "title": "社交媒体",
           "type": "social_links"
         },
@@ -196,12 +196,12 @@
           }
         },
         {
-          "id": "合作联系",
+          "id": "contact-collaboration",
           "title": "合作联系",
           "type": "contact_info"
         },
         {
-          "id": "我们的使命",
+          "id": "our-mission",
           "title": "我们的使命",
           "type": "section",
           "content": [
@@ -215,7 +215,7 @@
           ]
         },
         {
-          "id": "参与其中",
+          "id": "get-involved",
           "title": "参与其中",
           "type": "section",
           "content": [
@@ -293,7 +293,7 @@
       "title": "行为准则",
       "sections": [
         {
-          "id": "我们的承诺",
+          "id": "our-pledge",
           "title": "我们的承诺",
           "type": "section",
           "content": [
@@ -302,7 +302,7 @@
           ]
         },
         {
-          "id": "我们的标准",
+          "id": "our-standards",
           "title": "我们的标准",
           "type": "section",
           "content": [
@@ -315,7 +315,7 @@
           "contact_info": "• 使用色情语言或图像，以及任何形式的性关注或性暗示<br>• 恶意评论、侮辱性或贬损性评论，以及个人或政治攻击<br>• 公开或私下骚扰<br>• 未经明确许可，发布他人的私人信息，如物理地址或电子邮件地址<br>• 在专业环境中可能被合理认为不当的其他行为"
         },
         {
-          "id": "执行责任",
+          "id": "enforcement-responsibilities",
           "title": "执行责任",
           "type": "section",
           "content": [
@@ -324,7 +324,7 @@
           ]
         },
         {
-          "id": "适用范围",
+          "id": "scope",
           "title": "适用范围",
           "type": "section",
           "content": [
@@ -332,7 +332,7 @@
           ]
         },
         {
-          "id": "执行",
+          "id": "enforcement",
           "title": "执行",
           "type": "section",
           "content": [
@@ -341,7 +341,7 @@
           ]
         },
         {
-          "id": "来源",
+          "id": "attribution",
           "title": "来源",
           "type": "section",
           "content": [
