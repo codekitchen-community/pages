@@ -1,3 +1,31 @@
+// Preferences management
+const STORAGE_KEYS = {
+    LANGUAGE: 'codekitchen_language',
+    THEME: 'codekitchen_theme'
+};
+
+function savePreference(key, value) {
+    try {
+        localStorage.setItem(key, value);
+        console.log(`Saved preference: ${key} = ${value}`);
+    } catch (e) {
+        console.warn('Failed to save preference to localStorage:', e);
+    }
+}
+
+function loadPreference(key, defaultValue) {
+    try {
+        const saved = localStorage.getItem(key);
+        if (saved !== null) {
+            console.log(`Loaded preference: ${key} = ${saved}`);
+            return saved;
+        }
+    } catch (e) {
+        console.warn('Failed to load preference from localStorage:', e);
+    }
+    return defaultValue;
+}
+
 // Detect browser locale and set default language
 function detectBrowserLocale() {
     const browserLang = navigator.language || navigator.userLanguage;
@@ -17,8 +45,21 @@ function detectBrowserLocale() {
     return 'zh';
 }
 
-let currentLanguage = detectBrowserLocale();
-let currentTheme = 'light';
+// Initialize preferences: saved preference > browser locale > default
+function initializePreferences() {
+    const savedLanguage = loadPreference(STORAGE_KEYS.LANGUAGE, null);
+    const savedTheme = loadPreference(STORAGE_KEYS.THEME, 'light');
+    
+    const language = savedLanguage || detectBrowserLocale();
+    const theme = savedTheme;
+    
+    console.log('Initializing with preferences:', { language, theme });
+    return { language, theme };
+}
+
+const preferences = initializePreferences();
+let currentLanguage = preferences.language;
+let currentTheme = preferences.theme;
 let outlineOpen = false;
 let currentTab = 'readme';
 
@@ -201,6 +242,9 @@ function toggleTheme() {
         themeIcon.textContent = '🌙';
         currentTheme = 'light';
     }
+    
+    // Save theme preference
+    savePreference(STORAGE_KEYS.THEME, currentTheme);
 }
 
 function toggleLanguage() {
@@ -236,6 +280,9 @@ function toggleLanguage() {
         document.getElementById('home-tab').textContent = 'Back to Community';
     }
     
+    // Save language preference
+    savePreference(STORAGE_KEYS.LANGUAGE, currentLanguage);
+    
     // Restore the correct content based on current tab
     setTimeout(() => {
         if (currentTab === 'readme') {
@@ -254,9 +301,21 @@ function toggleLanguage() {
     }
 }
 
-// Initialize page based on detected language
+// Initialize page based on saved preferences and detected language/theme
 function initializePage() {
-    console.log('Initializing page with language:', currentLanguage);
+    console.log('Initializing page with preferences:', { language: currentLanguage, theme: currentTheme });
+    
+    // Apply saved theme
+    const body = document.body;
+    const themeIcon = document.getElementById('theme-icon');
+    
+    if (currentTheme === 'dark') {
+        body.setAttribute('data-theme', 'dark');
+        if (themeIcon) themeIcon.textContent = '☀️';
+    } else {
+        body.removeAttribute('data-theme');
+        if (themeIcon) themeIcon.textContent = '🌙';
+    }
     
     // Set initial UI text and language button
     const langText = document.getElementById('lang-text');
