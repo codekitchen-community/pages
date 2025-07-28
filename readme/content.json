@@ -1,0 +1,380 @@
+{
+  "site": {
+    "title": "CodeKitchen Community",
+    "logo_url": "https://codekitchen.community/uploads/default/original/2X/a/a30744ee5e971bdbd655b1e4e972863ff2f2802c.png",
+    "home_url": "https://codekitchen.community",
+    "contact_email": "hey@greyli.com",
+    "wechat": "greylihui"
+  },
+  "social_links": [
+    {
+      "name": "Twitter",
+      "name_zh": "Twitter",
+      "url": "https://twitter.com/codekitchen_",
+      "icon": "🐦",
+      "handle": "@codekitchen_"
+    },
+    {
+      "name": "Bilibili",
+      "name_zh": "哔哩哔哩",
+      "url": "https://space.bilibili.com/3493077773716257",
+      "icon": "📺",
+      "handle": "@CodeKitchen"
+    },
+    {
+      "name": "YouTube",
+      "name_zh": "YouTube",
+      "url": "https://www.youtube.com/@CodeKitchenCommunity",
+      "icon": "▶️",
+      "handle": "@CodeKitchenCommunity"
+    },
+    {
+      "name": "WeChat",
+      "name_zh": "微信公众号",
+      "url": "https://codekitchen.community/uploads/default/original/2X/3/3314010cb5868562a567841b204ca7c6224619b9.png",
+      "icon": "💬",
+      "handle": "@codekitchen"
+    },
+    {
+      "name": "Xiaohongshu",
+      "name_zh": "小红书",
+      "url": "https://www.xiaohongshu.com/user/profile/654f68070000000002029d1f",
+      "icon": "📖",
+      "handle": "@codekitchen"
+    }
+  ],
+  "readme": {
+    "en": {
+      "title": "CodeKitchen Community",
+      "sections": [
+        {
+          "type": "highlight_box",
+          "content": "<strong>CodeKitchen Community</strong> is a group formed by people who are passionate about programming and open source. The heart of the community is the website <a href=\"https://codekitchen.community\" target=\"_blank\">https://codekitchen.community</a>."
+        },
+        {
+          "id": "about-us",
+          "title": "About Us",
+          "type": "section",
+          "content": [
+            "We see programming as both a personal hobby and a fundamental skill in the modern world. Open source, in turn, serves as a way for developers to connect, collaborate, and drive technology forward together.",
+            "We're dedicated to exploring, educating, and promoting both. From time to time, the community hosts events related to programming and open source, helping more people discover—or rediscover—the joy of coding."
+          ]
+        },
+        {
+          "id": "social-media",
+          "title": "Social Media",
+          "type": "social_links"
+        },
+        {
+          "id": "events",
+          "title": "Community Events",
+          "type": "image_section",
+          "image": "https://codekitchen.community/uploads/default/original/2X/6/6176f181166439a3c3e780aea83ba52faeed3a79.jpeg",
+          "alt": "Song of Open Source",
+          "content": [
+            "<strong>Song of Open Source: Let's Open Source Together!</strong>",
+            "In short, it's an open source participation program (a simplified version of an open source hackathon).",
+            "It's also an initiative to encourage and help everyone contribute to open source, promote the growth of open source projects, and incubate new project ideas.",
+            "Each sprint, participating projects create tasks and act as mentors to help contributors complete one open source contribution."
+          ]
+        },
+        {
+          "type": "image_section",
+          "image": "https://codekitchen.community/uploads/default/original/2X/b/b54d736dfdc461e3e0304b0534012956a38ff5d8.jpeg",
+          "alt": "Kitchen Activities",
+          "reverse": true,
+          "content": [
+            "<strong>Other Events</strong>",
+            "Fun events organized by CodeKitchen or community members. Everyone is also welcome to share other interesting events.",
+            "So far, we've held six editions of the CodeKitchen Open Source Song (开源松)."
+          ]
+        },
+        {
+          "type": "image_section",
+          "image": "https://codekitchen.community/uploads/default/original/2X/5/5ec2356aab5a22e2d9ac39ae2c9a47c53901e70e.jpeg",
+          "alt": "Kitchen Committee",
+          "content": [
+            "<strong>Join the Kitchen Committee</strong>",
+            "Want to help us plan and organize the next fun event? Fill out the application form below to join our volunteer team — <em>The Kitchen Committee</em>.",
+            "We are preparing for the CodeKitchen Annual Conference (CodeKitchenConf) and planning to create some fun content.",
+            "P.S. If you love music and play an instrument, the CodeKitchen Band is also looking for new members."
+          ],
+          "cta": {
+            "text": "📝 Apply to Join the Kitchen Committee",
+            "url": "https://jsj.top/f/LHzJBH"
+          }
+        },
+        {
+          "id": "contact-collaboration",
+          "title": "Contact for Collaboration",
+          "type": "contact_info"
+        },
+        {
+          "id": "our-mission",
+          "title": "Our Mission",
+          "type": "section",
+          "content": [
+            "To create a vibrant community where developers can:"
+          ],
+          "stats": [
+            {"number": "Learn", "label": "Explore new technologies"},
+            {"number": "Connect", "label": "Build meaningful relationships"},
+            {"number": "Create", "label": "Build amazing projects"},
+            {"number": "Share", "label": "Contribute to open source"}
+          ]
+        },
+        {
+          "id": "get-involved",
+          "title": "Get Involved",
+          "type": "section",
+          "content": [
+            "Join us in our mission to make programming and open source accessible to everyone. Whether you're a beginner or an expert, there's a place for you in our community.",
+            "Visit our website at <a href=\"https://codekitchen.community\" target=\"_blank\">codekitchen.community</a> to learn more about upcoming events and how to get involved.",
+            "We regularly organize workshops, hackathons, and meetups to bring developers together and foster learning and collaboration."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "代码厨房社区",
+      "sections": [
+        {
+          "type": "highlight_box",
+          "content": "<strong>代码厨房（CodeKitchen Community）</strong>是一个由编程和和开源爱好者组成的社区。社区的主体是 <a href=\"https://codekitchen.community\" target=\"_blank\">https://codekitchen.community</a> 网站。"
+        },
+        {
+          "id": "about-us",
+          "title": "关于我们",
+          "type": "section",
+          "content": [
+            "编程作为一种爱好和现代人类基本技能，开源作为开发者之间建立友好连接并共同推动技术发展的方式。我们热衷于这两者的探索、教育和推广。",
+            "社区会不定期举办一些编程和开源相关的活动，让更多的人发现或重新发现编程的乐趣。"
+          ]
+        },
+        {
+          "id": "social-media",
+          "title": "社交媒体",
+          "type": "social_links"
+        },
+        {
+          "id": "events",
+          "title": "厨房活动",
+          "type": "image_section",
+          "image": "https://codekitchen.community/uploads/default/original/2X/6/6176f181166439a3c3e780aea83ba52faeed3a79.jpeg",
+          "alt": "开源松",
+          "content": [
+            "<strong>开源松 🌲：让我们一起种树（开源）吧！</strong>",
+            "简单来说，这是一个程序员免费打工活动——开源参与计划（简化版开源黑客马拉松）。",
+            "这也是一个鼓励和帮助大家贡献开源、促进开源项目发展、孵化新项目想法的倡议。",
+            "每个 sprint，参与的项目都会创建任务并担任导师，帮助贡献者完成一次开源贡献。"
+          ]
+        },
+        {
+          "type": "image_section",
+          "image": "https://codekitchen.community/uploads/default/original/2X/b/b54d736dfdc461e3e0304b0534012956a38ff5d8.jpeg",
+          "alt": "厨房活动",
+          "reverse": true,
+          "content": [
+            "<strong>厨房活动</strong>",
+            "由代码厨房或社区成员组织的有趣活动。也欢迎大家分享其他有趣的活动。",
+            "到目前为止，我们已经举办了六次代码厨房开源松。"
+          ]
+        },
+        {
+          "type": "image_section",
+          "image": "https://codekitchen.community/uploads/default/original/2X/5/5ec2356aab5a22e2d9ac39ae2c9a47c53901e70e.jpeg",
+          "alt": "厨房委员会",
+          "content": [
+            "<strong>加入厨房委员会</strong>",
+            "想帮助我们策划和组织下一个有趣的活动吗？填写下面的申请表，加入我们的志愿者团队——<em>厨房委员会</em>。",
+            "我们正在准备代码厨房年会（CodeKitchenConf），并计划创造一些有趣的内容。",
+            "附注：如果你热爱音乐并会演奏乐器，代码厨房乐队也在寻找新成员。"
+          ],
+          "cta": {
+            "text": "📝 申请加入厨房委员会",
+            "url": "https://jsj.top/f/LHzJBH"
+          }
+        },
+        {
+          "id": "contact-collaboration",
+          "title": "合作联系",
+          "type": "contact_info"
+        },
+        {
+          "id": "our-mission",
+          "title": "我们的使命",
+          "type": "section",
+          "content": [
+            "创建一个充满活力的社区，让开发者可以："
+          ],
+          "stats": [
+            {"number": "学习", "label": "探索新技术"},
+            {"number": "连接", "label": "建立有意义的关系"},
+            {"number": "创造", "label": "构建出色的项目"},
+            {"number": "分享", "label": "贡献开源项目"}
+          ]
+        },
+        {
+          "id": "get-involved",
+          "title": "参与其中",
+          "type": "section",
+          "content": [
+            "加入我们的使命，让编程和开源对每个人都变得可及。无论你是初学者还是专家，在我们的社区中都有你的位置。",
+            "访问我们的网站 <a href=\"https://codekitchen.community\" target=\"_blank\">codekitchen.community</a> 了解更多即将举行的活动以及如何参与。",
+            "我们定期组织研讨会、黑客马拉松和聚会，将开发者聚集在一起，促进学习和协作。"
+          ]
+        }
+      ]
+    }
+  },
+  "code_of_conduct": {
+    "en": {
+      "title": "Code of Conduct",
+      "sections": [
+        {
+          "id": "our-pledge",
+          "title": "Our Pledge",
+          "type": "section",
+          "content": [
+            "We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.",
+            "We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community."
+          ]
+        },
+        {
+          "id": "our-standards",
+          "title": "Our Standards",
+          "type": "section",
+          "content": [
+            "Examples of behavior that contributes to a positive environment for our community include:"
+          ],
+          "highlight_box": "• Demonstrating empathy and kindness toward other people<br>• Being respectful of differing opinions, viewpoints, and experiences<br>• Giving and gracefully accepting constructive feedback<br>• Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience<br>• Focusing on what is best not just for us as individuals, but for the overall community",
+          "content_after": [
+            "Examples of unacceptable behavior include:"
+          ],
+          "contact_info": "• The use of sexualized language or imagery, and sexual attention or advances of any kind<br>• Trolling, insulting or derogatory comments, and personal or political attacks<br>• Public or private harassment<br>• Publishing others' private information, such as a physical or email address, without their explicit permission<br>• Other conduct which could reasonably be considered inappropriate in a professional setting"
+        },
+        {
+          "id": "enforcement-responsibilities",
+          "title": "Enforcement Responsibilities",
+          "type": "section",
+          "content": [
+            "Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.",
+            "Community leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate."
+          ]
+        },
+        {
+          "id": "scope",
+          "title": "Scope",
+          "type": "section",
+          "content": [
+            "This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces."
+          ]
+        },
+        {
+          "id": "enforcement",
+          "title": "Enforcement",
+          "type": "section",
+          "content": [
+            "Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at <a href=\"mailto:hey@greyli.com\">hey@greyli.com</a>.",
+            "All complaints will be reviewed and investigated promptly and fairly. All community leaders are obligated to respect the privacy and security of the reporter of any incident."
+          ]
+        },
+        {
+          "id": "attribution",
+          "title": "Attribution",
+          "type": "section",
+          "content": [
+            "This Code of Conduct is adapted from the <a href=\"https://www.contributor-covenant.org/\" target=\"_blank\">Contributor Covenant</a>, version 2.1, available at <a href=\"https://www.contributor-covenant.org/version/2/1/code_of_conduct.html\" target=\"_blank\">https://www.contributor-covenant.org/version/2/1/code_of_conduct.html</a>."
+          ]
+        }
+      ]
+    },
+    "zh": {
+      "title": "行为准则",
+      "sections": [
+        {
+          "id": "our-pledge",
+          "title": "我们的承诺",
+          "type": "section",
+          "content": [
+            "作为成员、贡献者和领导者，我们承诺让社区的每一个人都不受骚扰，无论年龄、体型、明显或不明显的残疾、民族、性别特征、性别认同和表达、经验水平、教育程度、社会经济地位、国籍、个人外表、种族、宗教或性取向和性向认同如何。",
+            "我们承诺以促进开放、友好、多元、包容和健康的社区的方式行事和互动。"
+          ]
+        },
+        {
+          "id": "our-standards",
+          "title": "我们的标准",
+          "type": "section",
+          "content": [
+            "有助于为我们的社区创造积极环境的行为包括："
+          ],
+          "highlight_box": "• 对其他人表现出同情和善意<br>• 尊重不同的观点、看法和经历<br>• 给予并优雅地接受建设性反馈<br>• 承担责任并向受我们错误影响的人道歉，并从经验中学习<br>• 专注于不仅对我们个人最好，而且对整个社区最好的事情",
+          "content_after": [
+            "不可接受的行为包括："
+          ],
+          "contact_info": "• 使用色情语言或图像，以及任何形式的性关注或性暗示<br>• 恶意评论、侮辱性或贬损性评论，以及个人或政治攻击<br>• 公开或私下骚扰<br>• 未经明确许可，发布他人的私人信息，如物理地址或电子邮件地址<br>• 在专业环境中可能被合理认为不当的其他行为"
+        },
+        {
+          "id": "enforcement-responsibilities",
+          "title": "执行责任",
+          "type": "section",
+          "content": [
+            "社区领导者有责任澄清和执行我们的可接受行为标准，并将对他们认为不当、威胁、冒犯或有害的任何行为采取适当和公平的纠正措施。",
+            "社区领导者有权利和责任删除、编辑或拒绝不符合本行为准则的评论、提交、代码、wiki编辑、问题和其他贡献，并在适当时传达审核决定的原因。"
+          ]
+        },
+        {
+          "id": "scope",
+          "title": "适用范围",
+          "type": "section",
+          "content": [
+            "本行为准则适用于所有社区空间，也适用于个人在公共空间正式代表社区时。"
+          ]
+        },
+        {
+          "id": "enforcement",
+          "title": "执行",
+          "type": "section",
+          "content": [
+            "可以通过 <a href=\"mailto:hey@greyli.com\">hey@greyli.com</a> 向负责执行的社区领导者报告辱骂、骚扰或其他不可接受的行为。",
+            "所有投诉都将得到及时和公平的审查和调查。所有社区领导者都有义务尊重任何事件报告者的隐私和安全。"
+          ]
+        },
+        {
+          "id": "attribution",
+          "title": "来源",
+          "type": "section",
+          "content": [
+            "本行为准则改编自<a href=\"https://www.contributor-covenant.org/\" target=\"_blank\">贡献者契约</a>，版本2.1，可在 <a href=\"https://www.contributor-covenant.org/version/2/1/code_of_conduct.html\" target=\"_blank\">https://www.contributor-covenant.org/version/2/1/code_of_conduct.html</a> 找到。"
+          ]
+        }
+      ]
+    }
+  },
+  "ui_text": {
+    "en": {
+      "theme_toggle": "🌙",
+      "theme_toggle_dark": "☀️",
+      "language_switch": "中文",
+      "readme_tab": "README",
+      "conduct_tab": "Code of Conduct",
+      "blog_tab": "Blog",
+      "home_tab": "Back to Community",
+      "outline_title": "Outline",
+      "contact_email_label": "Email:",
+      "contact_wechat_label": "WeChat:"
+    },
+    "zh": {
+      "theme_toggle": "🌙",
+      "theme_toggle_dark": "☀️", 
+      "language_switch": "English",
+      "readme_tab": "说明文档",
+      "conduct_tab": "行为准则",
+      "blog_tab": "博客",
+      "home_tab": "返回社区",
+      "outline_title": "大纲",
+      "contact_email_label": "邮箱:",
+      "contact_wechat_label": "微信:"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{% set readme = readme.zh %}
+<h1 id="codekitchen-community">
+    <a href="#codekitchen-community" class="anchor">#</a>
+    {{ readme.title }}
+</h1>
+
+{% for section in readme.sections %}
+    {% if section.type == 'highlight_box' %}
+        <div class="highlight-box">
+            <p>{{ section.content|safe }}</p>
+        </div>
+    {% elif section.type == 'section' %}
+        {% if section.id and section.title %}
+            <h2 id="{{ section.id }}">
+                <a href="#{{ section.id }}" class="anchor">#</a>
+                {{ section.title }}
+            </h2>
+        {% endif %}
+        
+        {% for content in section.content %}
+            <p>{{ content|safe }}</p>
+        {% endfor %}
+        
+        {% if section.stats %}
+            <div class="stats-grid">
+                {% for stat in section.stats %}
+                    <div class="stat-card">
+                        <div class="stat-number">{{ stat.number }}</div>
+                        <div class="stat-label">{{ stat.label }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% elif section.type == 'social_links' %}
+        {% if section.id and section.title %}
+            <h2 id="{{ section.id }}">
+                <a href="#{{ section.id }}" class="anchor">#</a>
+                {{ section.title }}
+            </h2>
+        {% endif %}
+        
+        <div class="social-links">
+            {% for link in social_links %}
+                <a href="{{ link.url }}" target="_blank" class="social-link">
+                    <span class="social-icon">{{ link.icon }}</span>
+                    {{ link.name_zh }} {{ link.handle }}
+                </a>
+            {% endfor %}
+        </div>
+    {% elif section.type == 'image_section' %}
+        {% if section.id and section.title %}
+            <h2 id="{{ section.id }}">
+                <a href="#{{ section.id }}" class="anchor">#</a>
+                {{ section.title }}
+            </h2>
+        {% endif %}
+        
+        <div class="image-section"{% if section.reverse %} style="flex-direction: row-reverse;"{% endif %}>
+            <img src="{{ section.image }}" alt="{{ section.alt }}" class="section-image">
+            <div class="image-content">
+                {% for content in section.content %}
+                    <p>{{ content|safe }}</p>
+                {% endfor %}
+                
+                {% if section.cta %}
+                    <a href="{{ section.cta.url }}" target="_blank" class="cta-button">
+                        {{ section.cta.text }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    {% elif section.type == 'contact_info' %}
+        {% if section.id and section.title %}
+            <h2 id="{{ section.id }}">
+                <a href="#{{ section.id }}" class="anchor">#</a>
+                {{ section.title }}
+            </h2>
+        {% endif %}
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-label">{{ ui_text.zh.contact_email_label }}</span>
+                <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">{{ ui_text.zh.contact_wechat_label }}</span>
+                <span>{{ site.wechat }}</span>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
