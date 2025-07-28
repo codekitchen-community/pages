@@ -385,11 +385,11 @@ function createStarTornado() {
         const animations = ['starFloat1', 'starFloat2', 'starFloat3', 'starFloat4', 'starFloat5'];
         const animation = animations[Math.floor(Math.random() * animations.length)];
         
-        // Random duration between 2.5s and 5s
+        // Random duration between 2.5s and 5s - faster
         const duration = 2.5 + Math.random() * 2.5;
         
-        // Random delay up to 1.5s
-        const delay = Math.random() * 1.5;
+        // Random delay up to 2s - quicker spread
+        const delay = Math.random() * 2;
         
         star.style.animation = `${animation} ${duration}s ease-out ${delay}s forwards`;
         
@@ -417,7 +417,7 @@ function createStarTornado() {
             // Use random animation for sparkles too
             const sparkleAnimations = ['starFloat1', 'starFloat2', 'starFloat3', 'starFloat4', 'starFloat5'];
             const sparkleAnimation = sparkleAnimations[Math.floor(Math.random() * sparkleAnimations.length)];
-            const sparkleDuration = 2.5 + Math.random() * 2;
+            const sparkleDuration = 2 + Math.random() * 2.5;
             
             sparkle.style.animation = `${sparkleAnimation} ${sparkleDuration}s ease-out forwards`;
             
@@ -430,7 +430,7 @@ function createStarTornado() {
         if (container && container.parentNode) {
             container.parentNode.removeChild(container);
         }
-    }, 4000);
+    }, 8000);
     
     // Add button press effect
     const starButton = document.querySelector('.star-button');
