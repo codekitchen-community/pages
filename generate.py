@@ -63,12 +63,15 @@ def generate_page_html(page_name, page_folder):
     # Setup Jinja2 environment
     env = setup_jinja_env()
     
-    # Load main template
+    # Load page-specific template (fallback to base.html if not found)
     try:
-        template = env.get_template('base.html')
-    except Exception as e:
-        print(f"❌ Error loading template: {e}")
-        return False
+        template = env.get_template(f'{page_name}/index.html')
+    except Exception:
+        try:
+            template = env.get_template('base.html')
+        except Exception as e:
+            print(f"❌ Error loading template: {e}")
+            return False
     
     # Prepare template data
     template_data = {

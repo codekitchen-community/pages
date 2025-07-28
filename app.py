@@ -58,8 +58,7 @@ def serve_page(page_name):
             'js_content': js_content
         }
         
-        # Render template
-        return render_template('base.html', **template_data)
+        return render_template(f'{page_name}/index.html', **template_data)
         
     except FileNotFoundError as e:
         return f"Missing file: {e}", 404
