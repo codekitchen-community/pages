@@ -1,0 +1,60 @@
+name: Generate Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Generate pages
+      run: |
+        python generate.py
+
+    - name: Process generated files
+      run: |
+        # Find all body.html files and rename to body.html.erb
+        find . -name "body.html" -type f | while read file; do
+          dir=$(dirname "$file")
+          mv "$file" "$dir/body.html.erb"
+          echo "Renamed $file to $dir/body.html.erb"
+        done
+
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: Create and push to production branch
+      run: |
+        # Create production branch if it doesn't exist
+        git checkout -B production
+        
+        # Add all generated .erb files
+        git add .
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Generate pages: $(date)"
+          git push origin production --force
+        fi
