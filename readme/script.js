@@ -352,6 +352,96 @@ function initializePage() {
     updateOutlineLanguage();
 }
 
+// Star Tornado Animation
+function createStarTornado() {
+    // Create container for stars
+    const container = document.createElement('div');
+    container.className = 'star-tornado-container';
+    document.body.appendChild(container);
+    
+    // Star symbols array for variety
+    const starSymbols = ['⭐', '✨', '🌟', '💫', '⭐', '✨'];
+    
+    // Create multiple star particles
+    const numStars = 80;
+    
+    for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star-particle';
+        star.textContent = starSymbols[Math.floor(Math.random() * starSymbols.length)];
+        
+        // Random starting position across the screen bottom
+        const startX = Math.random() * window.innerWidth;
+        const startY = window.innerHeight + 50; // Start below the screen
+        
+        star.style.left = startX + 'px';
+        star.style.top = startY + 'px';
+        
+        // Random size variation - much bigger
+        const size = 40 + Math.random() * 60;
+        star.style.fontSize = size + 'px';
+        
+        // Choose random animation from 5 different float patterns
+        const animations = ['starFloat1', 'starFloat2', 'starFloat3', 'starFloat4', 'starFloat5'];
+        const animation = animations[Math.floor(Math.random() * animations.length)];
+        
+        // Random duration between 2.5s and 5s
+        const duration = 2.5 + Math.random() * 2.5;
+        
+        // Random delay up to 1.5s
+        const delay = Math.random() * 1.5;
+        
+        star.style.animation = `${animation} ${duration}s ease-out ${delay}s forwards`;
+        
+        // Random rotation for variety
+        const rotation = Math.random() * 360;
+        star.style.transform = `rotate(${rotation}deg)`;
+        
+        container.appendChild(star);
+    }
+    
+    // Add some extra sparkles that appear later
+    setTimeout(() => {
+        for (let i = 0; i < 50; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'star-particle';
+            sparkle.textContent = '✨';
+            
+            const x = Math.random() * window.innerWidth;
+            const y = window.innerHeight + 50; // Start below screen like main stars
+            
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.fontSize = (35 + Math.random() * 45) + 'px';
+            
+            // Use random animation for sparkles too
+            const sparkleAnimations = ['starFloat1', 'starFloat2', 'starFloat3', 'starFloat4', 'starFloat5'];
+            const sparkleAnimation = sparkleAnimations[Math.floor(Math.random() * sparkleAnimations.length)];
+            const sparkleDuration = 2.5 + Math.random() * 2;
+            
+            sparkle.style.animation = `${sparkleAnimation} ${sparkleDuration}s ease-out forwards`;
+            
+            container.appendChild(sparkle);
+        }
+    }, 500);
+    
+    // Clean up after animation completes
+    setTimeout(() => {
+        if (container && container.parentNode) {
+            container.parentNode.removeChild(container);
+        }
+    }, 4000);
+    
+    // Add button press effect
+    const starButton = document.querySelector('.star-button');
+    if (starButton) {
+        starButton.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            starButton.style.transform = '';
+        }, 150);
+    }
+}
+
 // Smooth scrolling for anchor links
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize page with detected language
