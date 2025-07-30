@@ -247,6 +247,14 @@ function toggleTheme() {
     savePreference(STORAGE_KEYS.THEME, currentTheme);
 }
 
+function updateLanguageTitle() {
+    const langButton = document.querySelector('.language-switch');
+    if (langButton) {
+        // Set title to the language that will be switched to
+        langButton.title = currentLanguage === 'en' ? '中文' : 'English';
+    }
+}
+
 function toggleLanguage() {
     const langText = document.getElementById('lang-text');
     
@@ -256,7 +264,6 @@ function toggleLanguage() {
         document.getElementById('readme-chinese').classList.add('active');
         document.getElementById('conduct-english').classList.remove('active');
         document.getElementById('conduct-chinese').classList.add('active');
-        langText.textContent = 'English';
         currentLanguage = 'zh';
         
         // Update tab text
@@ -270,7 +277,6 @@ function toggleLanguage() {
         document.getElementById('readme-english').classList.add('active');
         document.getElementById('conduct-chinese').classList.remove('active');
         document.getElementById('conduct-english').classList.add('active');
-        langText.textContent = '中文';
         currentLanguage = 'en';
         
         // Update tab text
@@ -282,6 +288,9 @@ function toggleLanguage() {
     
     // Save language preference
     savePreference(STORAGE_KEYS.LANGUAGE, currentLanguage);
+    
+    // Update the title for the language button
+    updateLanguageTitle();
     
     // Restore the correct content based on current tab
     setTimeout(() => {
@@ -328,7 +337,6 @@ function initializePage() {
         document.getElementById('conduct-chinese')?.classList.add('active');
         
         // Set UI text to Chinese
-        if (langText) langText.textContent = 'English';
         document.getElementById('readme-tab').textContent = '说明文档';
         document.getElementById('conduct-tab').textContent = '行为准则';
         document.getElementById('blog-tab').textContent = '博客';
@@ -341,7 +349,6 @@ function initializePage() {
         document.getElementById('conduct-english')?.classList.add('active');
         
         // Set UI text to English
-        if (langText) langText.textContent = '中文';
         document.getElementById('readme-tab').textContent = 'README';
         document.getElementById('conduct-tab').textContent = 'Code of Conduct';
         document.getElementById('blog-tab').textContent = 'Blog';
@@ -350,6 +357,9 @@ function initializePage() {
     
     // Update outline language
     updateOutlineLanguage();
+    
+    // Update the title for the language button
+    updateLanguageTitle();
 }
 
 // Star Tornado Animation
