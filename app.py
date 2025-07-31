@@ -2,23 +2,20 @@
 """
 Flask App for Community Pages
 
-This Flask app serves HTML pages dynamically from JSON data and templates,
-allowing preview without generating static files. Also includes CLI commands
-for HTML generation.
+This Flask app serves HTML pages dynamically from JSON data and templates
+for live preview. Static HTML generation is handled by GitHub Actions.
 """
 
 import json
-import os
-import sys
 import click
 from pathlib import Path
 from flask import Flask, render_template, abort, redirect, url_for
 from jinja2 import TemplateNotFound
 
-# Import generator functions
+# Import helper functions for live preview
 from generate import (
     load_data, load_css_content, load_js_content, 
-    find_page_folders, generate_page_html, generate_all_pages
+    find_page_folders
 )
 
 app = Flask(__name__)
@@ -133,53 +130,7 @@ def list_pages():
     
     return html
 
-# CLI Commands
-@app.cli.command()
-@click.argument('page_name', required=False)
-def generate(page_name):
-    """Generate static HTML files.
-    
-    Usage:
-        flask generate          # Generate all pages
-        flask generate readme   # Generate specific page
-    """
-    if page_name:
-        click.echo(f"🔧 Generating {page_name} page...")
-        success = generate_page_html(page_name, page_name)
-        if success:
-            click.echo(f"✅ Generated {page_name}/body.html")
-        else:
-            click.echo("❌ Generation failed")
-            sys.exit(1)
-    else:
-        click.echo("🚀 Generating all pages...")
-        success = generate_all_pages()
-        if success:
-            click.echo("✨ All pages generated successfully!")
-        else:
-            click.echo("💥 Generation failed!")
-            sys.exit(1)
-
-@app.cli.command()
-def list_pages_cli():
-    """List all available page folders."""
-    page_folders = find_page_folders()
-    
-    if not page_folders:
-        click.echo("❌ No page folders found.")
-        click.echo("💡 Create a folder with content.json to add a page.")
-        return
-    
-    click.echo("📁 Available pages:")
-    for page_name in page_folders:
-        page_folder = Path(page_name)
-        try:
-            data = load_data(page_folder)
-            title = data.get('site', {}).get('title', page_name)
-            click.echo(f"  • {page_name} - {title}")
-        except:
-            click.echo(f"  • {page_name} - (error loading)")
-
+# CLI Command for creating new pages
 @app.cli.command()
 @click.argument('page_name')
 def new_page(page_name):
@@ -276,21 +227,16 @@ console.log('Page loaded successfully');
     click.echo(f"🌐 Preview at: http://localhost:8000/{page_name}")
 
 if __name__ == '__main__':
-    # Check if running with Flask CLI commands
-    if len(sys.argv) > 1 and sys.argv[1] in ['generate', 'list-pages', 'new-page']:
-        # This is handled by Flask CLI
-        pass
-    else:
-        # Run the Flask dev server
-        click.echo("🚀 Starting Flask development server...")
-        click.echo("📄 Available endpoints:")
-        click.echo("  • http://localhost:8000/ - Redirect to first page")
-        click.echo("  • http://localhost:8000/pages - List all pages")
-        click.echo("  • http://localhost:8000/<page_name> - View specific page")
-        click.echo("")
-        click.echo("🔧 Available commands:")
-        click.echo("  • flask generate [page] - Generate static HTML")
-        click.echo("  • flask list-pages - List available pages") 
-        click.echo("  • flask new-page <name> - Create new page")
-        click.echo("")
-        app.run(debug=True, host='127.0.0.1', port=8000)
+    # Run the Flask dev server for live preview
+    click.echo("🚀 Starting Flask development server for live preview...")
+    click.echo("📄 Available endpoints:")
+    click.echo("  • http://localhost:8000/ - Redirect to first page")
+    click.echo("  • http://localhost:8000/pages - List all pages")
+    click.echo("  • http://localhost:8000/<page_name> - View specific page")
+    click.echo("")
+    click.echo("🔧 Available command:")
+    click.echo("  • flask new-page <name> - Create new page")
+    click.echo("")
+    click.echo("💡 Static HTML generation is handled by GitHub Actions")
+    click.echo("")
+    app.run(debug=True, host='127.0.0.1', port=8000)

@@ -1,8 +1,8 @@
-# Community Page Generator
+# Community Pages
 
-A Python app that generates HTML pages using JSON data and Jinja2 templates, with Flask development server for live preview.
+A Python app that generates HTML pages using JSON data and Jinja2 templates. Features a Flask development server for live preview and GitHub Actions for automated static HTML generation. The deployed pages are will be available at `https://codekitchen.community/<page_name>`.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 /
@@ -24,17 +24,16 @@ A Python app that generates HTML pages using JSON data and Jinja2 templates, wit
 └── requirements.txt         # Dependencies
 ```
 
-## 🚀 Features
+## Usage
 
-- **Flask Development Server**: Live preview without generating files
-- **Multi-page Support**: Each page has its own folder with content, styles, and scripts
-- **Inline Assets**: CSS and JS are embedded directly in generated HTML
-- **Bilingual Support**: English and Chinese content with language switching
-- **CLI Commands**: Flask commands for generation and page management
+Clone the repository and install dependencies:
+```bash
+git clone https://github.com/codekitchen-community/pages.git
+cd pages
+pip install -r requirements.txt
+```
 
-## 📋 Usage
-
-### Development Server (Live Preview)
+### Development
 ```bash
 python app.py
 # or
@@ -42,76 +41,33 @@ FLASK_APP=app.py flask run
 ```
 
 Access at:
-- `http://localhost:5000/` - Redirect to first page
-- `http://localhost:5000/pages` - List all pages
-- `http://localhost:5000/readme` - View specific page
+- `http://localhost:8000/` - Redirect to first page
+- `http://localhost:8000/pages` - List all pages
+- `http://localhost:8000/readme` - View specific page
 
 ### Generate Static HTML
+
+Static HTML generation is handled automatically by GitHub Actions when you push to the main branch.
+
+For manual generation:
+
 ```bash
-# Generate all pages
-FLASK_APP=app.py flask generate
+# Generate all pages (standalone script)
+python generate.py
 
 # Generate specific page
-FLASK_APP=app.py flask generate readme
-
-# Alternative: standalone script
-python generate.py [page_name]
+python generate.py readme
 ```
 
 ### Page Management
-```bash
-# List available pages
-FLASK_APP=app.py flask list-pages-cli
 
+```bash
 # Create new page
 FLASK_APP=app.py flask new-page blog
 ```
-
-### Installation
-```bash
-pip install -r requirements.txt
-```
-
-## 📄 Page Structure
 
 Each page needs:
 - `content.json` - Page content and configuration
 - `style.css` - Page-specific styles 
 - `script.js` - Page-specific JavaScript
 - Templates in `templates/{page_name}/` folder
-
-## 🔧 Development Workflow
-
-### Live Development
-1. Start Flask server: `python app.py`
-2. Edit `content.json`, `style.css`, or `script.js`
-3. Refresh browser to see changes instantly
-4. No generation step needed for preview
-
-### Production Build
-1. Generate static files: `flask generate`
-2. Use generated `body.html.erb` files for deployment
-3. Files are self-contained with inline CSS/JS
-
-### Adding New Pages
-```bash
-# Option 1: Use Flask command (creates template files)
-flask new-page blog
-
-# Option 2: Manual creation
-mkdir blog
-# Add content.json, style.css, script.js
-# Create templates/blog/ folder with templates
-```
-
-## 🎨 Flask Routes
-
-- `GET /` - Redirect to first available page
-- `GET /pages` - List all available pages with links
-- `GET/<page_name>` - Serve specific page dynamically
-
-## 🔧 Flask Commands
-
-- `flask generate [page]` - Generate static HTML files
-- `flask list-pages-cli` - List available page folders
-- `flask new-page <name>` - Create new page with template files
