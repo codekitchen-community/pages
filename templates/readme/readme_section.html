@@ -4,88 +4,108 @@
     {{ readme.title }}
 </h1>
 
-{% for section in readme.sections %}
-    {% if section.type == 'highlight_box' %}
-        <div class="highlight-box">
-            <p>{{ section.content|safe }}</p>
-        </div>
-    {% elif section.type == 'section' %}
-        {% if section.id and section.title %}
-            <h2 id="{{ section.id }}">
-                <a href="#{{ section.id }}" class="anchor">#</a>
-                {{ section.title }}
-            </h2>
-        {% endif %}
-        
-        {% for content in section.content %}
+<div class="highlight-box">
+    <p>{{ readme.sections.intro.content|safe }}</p>
+</div>
+
+<h2 id="{{ readme.sections.about_us.id }}">
+    <a href="#{{ readme.sections.about_us.id }}" class="anchor">#</a>
+    {{ readme.sections.about_us.title }}
+</h2>
+
+{% for content in readme.sections.about_us.content %}
+    <p>{{ content|safe }}</p>
+{% endfor %}
+
+<h2 id="{{ readme.sections.social_media.id }}">
+    <a href="#{{ readme.sections.social_media.id }}" class="anchor">#</a>
+    {{ readme.sections.social_media.title }}
+</h2>
+
+<div class="social-links">
+    {% for link in social_links %}
+        <a href="{{ link.url }}" target="_blank" class="social-link">
+            <span class="social-icon">{{ link.icon }}</span>
+            {{ link.name }} {{ link.handle }}
+        </a>
+    {% endfor %}
+</div>
+
+<h2 id="{{ readme.sections.events.id }}">
+    <a href="#{{ readme.sections.events.id }}" class="anchor">#</a>
+    {{ readme.sections.events.title }}
+</h2>
+
+<div class="image-section">
+    <img src="{{ readme.sections.events.image }}" alt="{{ readme.sections.events.alt }}" class="section-image">
+    <div class="image-content">
+        {% for content in readme.sections.events.content %}
+            <p>{{ content|safe }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="image-section" style="flex-direction: row-reverse;">
+    <img src="{{ readme.sections.other_events.image }}" alt="{{ readme.sections.other_events.alt }}" class="section-image">
+    <div class="image-content">
+        {% for content in readme.sections.other_events.content %}
+            <p>{{ content|safe }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="image-section">
+    <img src="{{ readme.sections.join_committee.image }}" alt="{{ readme.sections.join_committee.alt }}" class="section-image">
+    <div class="image-content">
+        {% for content in readme.sections.join_committee.content %}
             <p>{{ content|safe }}</p>
         {% endfor %}
         
-        {% if section.stats %}
-            <div class="stats-grid">
-                {% for stat in section.stats %}
-                    <div class="stat-card">
-                        <div class="stat-number">{{ stat.number }}</div>
-                        <div class="stat-label">{{ stat.label }}</div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-    {% elif section.type == 'social_links' %}
-        {% if section.id and section.title %}
-            <h2 id="{{ section.id }}">
-                <a href="#{{ section.id }}" class="anchor">#</a>
-                {{ section.title }}
-            </h2>
-        {% endif %}
-        
-        <div class="social-links">
-            {% for link in social_links %}
-                <a href="{{ link.url }}" target="_blank" class="social-link">
-                    <span class="social-icon">{{ link.icon }}</span>
-                    {{ link.name }} {{ link.handle }}
-                </a>
-            {% endfor %}
+        <a href="{{ readme.sections.join_committee.cta.url }}" target="_blank" class="cta-button">
+            {{ readme.sections.join_committee.cta.text }}
+        </a>
+    </div>
+</div>
+
+<h2 id="{{ readme.sections.contact.id }}">
+    <a href="#{{ readme.sections.contact.id }}" class="anchor">#</a>
+    {{ readme.sections.contact.title }}
+</h2>
+
+<div class="contact-info">
+    <div class="contact-item">
+        <span class="contact-label">{{ ui_text.en.contact_email_label }}</span>
+        <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+    </div>
+    <div class="contact-item">
+        <span class="contact-label">{{ ui_text.en.contact_wechat_label }}</span>
+        <span>{{ site.wechat }}</span>
+    </div>
+</div>
+
+<h2 id="{{ readme.sections.mission.id }}">
+    <a href="#{{ readme.sections.mission.id }}" class="anchor">#</a>
+    {{ readme.sections.mission.title }}
+</h2>
+
+{% for content in readme.sections.mission.content %}
+    <p>{{ content|safe }}</p>
+{% endfor %}
+
+<div class="stats-grid">
+    {% for stat in readme.sections.mission.stats %}
+        <div class="stat-card">
+            <div class="stat-number">{{ stat.number }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
         </div>
-    {% elif section.type == 'image_section' %}
-        {% if section.id and section.title %}
-            <h2 id="{{ section.id }}">
-                <a href="#{{ section.id }}" class="anchor">#</a>
-                {{ section.title }}
-            </h2>
-        {% endif %}
-        
-        <div class="image-section"{% if section.reverse %} style="flex-direction: row-reverse;"{% endif %}>
-            <img src="{{ section.image }}" alt="{{ section.alt }}" class="section-image">
-            <div class="image-content">
-                {% for content in section.content %}
-                    <p>{{ content|safe }}</p>
-                {% endfor %}
-                
-                {% if section.cta %}
-                    <a href="{{ section.cta.url }}" target="_blank" class="cta-button">
-                        {{ section.cta.text }}
-                    </a>
-                {% endif %}
-            </div>
-        </div>
-    {% elif section.type == 'contact_info' %}
-        {% if section.id and section.title %}
-            <h2 id="{{ section.id }}">
-                <a href="#{{ section.id }}" class="anchor">#</a>
-                {{ section.title }}
-            </h2>
-        {% endif %}
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <span class="contact-label">{{ ui_text.en.contact_email_label }}</span>
-                <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">{{ ui_text.en.contact_wechat_label }}</span>
-                <span>{{ site.wechat }}</span>
-            </div>
-        </div>
-    {% endif %}
+    {% endfor %}
+</div>
+
+<h2 id="{{ readme.sections.get_involved.id }}">
+    <a href="#{{ readme.sections.get_involved.id }}" class="anchor">#</a>
+    {{ readme.sections.get_involved.title }}
+</h2>
+
+{% for content in readme.sections.get_involved.content %}
+    <p>{{ content|safe }}</p>
 {% endfor %}

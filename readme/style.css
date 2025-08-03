@@ -468,6 +468,10 @@ a:hover {
     align-items: center;
 }
 
+.image-section p {
+    margin-bottom: 10px;
+}
+
 .section-image {
     flex-shrink: 0;
     width: 40%;
