@@ -67,21 +67,7 @@
     </div>
 </div>
 
-<h2 id="{{ readme.sections.contact.id }}">
-    <a href="#{{ readme.sections.contact.id }}" class="anchor">#</a>
-    {{ readme.sections.contact.title }}
-</h2>
 
-<div class="contact-info">
-    <div class="contact-item">
-        <span class="contact-label">{{ ui_text.en.contact_email_label }}</span>
-        <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
-    </div>
-    <div class="contact-item">
-        <span class="contact-label">{{ ui_text.en.contact_wechat_label }}</span>
-        <span>{{ site.wechat }}</span>
-    </div>
-</div>
 
 <h2 id="{{ readme.sections.mission.id }}">
     <a href="#{{ readme.sections.mission.id }}" class="anchor">#</a>
@@ -101,11 +87,20 @@
     {% endfor %}
 </div>
 
-<h2 id="{{ readme.sections.get_involved.id }}">
-    <a href="#{{ readme.sections.get_involved.id }}" class="anchor">#</a>
-    {{ readme.sections.get_involved.title }}
+<h2 id="{{ readme.sections.contact.id }}">
+    <a href="#{{ readme.sections.contact.id }}" class="anchor">#</a>
+    {{ readme.sections.contact.title }}
 </h2>
 
-{% for content in readme.sections.get_involved.content %}
-    <p>{{ content|safe }}</p>
-{% endfor %}
+<p>Business Cooperation & Sponsorship: Please contact community administrator Grey Li:</p>
+
+<div class="contact-info">
+    <div class="contact-item">
+        <span class="contact-label">{{ ui_text.en.contact_email_label }}</span>
+        <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+    </div>
+    <div class="contact-item">
+        <span class="contact-label">{{ ui_text.en.contact_wechat_label }}</span>
+        <span>{{ site.wechat }}</span>
+    </div>
+</div>

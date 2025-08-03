@@ -67,18 +67,18 @@
         },
         "social_media": {
           "id": "social-media",
-          "title": "Social Media"
+          "title": "Useful Links"
         },
         "events": {
           "id": "events",
-          "title": "Community Events",
+          "title": "Features",
           "image": "https://codekitchen.community/uploads/default/original/2X/6/6176f181166439a3c3e780aea83ba52faeed3a79.jpeg",
           "alt": "Song of Open Source",
           "content": [
-            "<strong>Song of Open Source: Let's Open Source Together!</strong>",
-            "In short, it's an open source participation program (a simplified version of an open source hackathon).",
-            "It's also an initiative to encourage and help everyone contribute to open source, promote the growth of open source projects, and incubate new project ideas.",
-            "Each sprint, participating projects create tasks and act as mentors to help contributors complete one open source contribution."
+            "<strong>Song of Open Source: Let's do open source projects together!</strong>",
+            "Song of Open Source is an event that encourages and helps everyone participate in open source projects, promotes the development of open source projects, and incubates project ideas.",
+            "So far, we have held six CodeKitchen Songs of Open Source. For each Song of Open Source, we invite or gather open source projects to participate, and project maintainers create tasks and act as mentors to help contributors complete one open source contribution.",
+            "If you have an open source project that you want to join, welcome to sign up <a href=\"https://codekitchen.community/t/topic/1159\" target=\"_blank\">here</a>. Friends who want to participate in the Song of Open Source can follow our social media to learn about the latest Song of Open Source updates."
           ]
         },
         "other_events": {
@@ -86,45 +86,45 @@
           "alt": "Kitchen Activities",
           "reverse": true,
           "content": [
-            "<strong>Other Events</strong>",
-            "Fun events organized by CodeKitchen or community members. Everyone is also welcome to share other interesting events.",
-            "So far, we've held six editions of the CodeKitchen Open Source Song (开源松)."
+            "<strong>Kitchen Activities</strong>",
+            "In addition to the Song of Open Source, we also hold other interesting events initiated by CodeKitchen or community members.",
+            "We plan to prepare a CodeKitchen Annual Conference (CodeKitchenConf) in 2026 - an annual gathering organized by and for programming and open source enthusiasts. The goal is to create a technology conference with minimal commercial atmosphere, returning to humans as the main focus, while being fun and generating value.",
+            "Visit our <a href=\"https://codekitchen.community/c/events\" target=\"_blank\">events page</a> to see upcoming events!"
           ]
         },
         "join_committee": {
-          "image": "https://codekitchen.community/uploads/default/original/2X/5/5ec2356aab5a22e2d9ac39ae2c9a47c53901e70e.jpeg",
+          "image": "https://codekitchen.community/uploads/default/original/2X/9/9b1be299627d0ef4c0f4b3586a750f13c954de99.jpeg",
           "alt": "Kitchen Committee",
           "content": [
             "<strong>Join the Kitchen Committee</strong>",
             "Want to help us plan and organize the next fun event? Fill out the application form below to join our volunteer team — <em>The Kitchen Committee</em>.",
-            "We are preparing for the CodeKitchen Annual Conference (CodeKitchenConf) and planning to create some fun content.",
-            "P.S. If you love music and play an instrument, the CodeKitchen Band is also looking for new members."
+            "We want to build the community in a more open way, so most of the community management affairs will be discussed publicly on the website. You can read the topics under the <a href=\"https://codekitchen.community/c/kitchen\" target=\"_blank\">Kitchen category</a> to learn what we are doing. Welcome to join the discussion and participate!"
           ],
           "cta": {
-            "text": "📝 Apply to Join the Kitchen Committee",
+            "text": "📝 Join the Kitchen Committee",
             "url": "https://jsj.top/f/LHzJBH"
           }
         },
         "contact": {
           "id": "contact-collaboration",
-          "title": "Contact for Collaboration"
+          "title": "Contact"
         },
         "mission": {
           "id": "our-mission",
-          "title": "Our Mission",
+          "title": "Missions",
           "content": [
-            "To create a vibrant community where developers can:"
+            "We hope to create a relaxing and rewarding community where community members can:"
           ],
           "stats": [
-            {"number": "Learn", "label": "Explore new technologies"},
+            {"number": "Learn", "label": "Get into programming and explore new technologies"},
             {"number": "Connect", "label": "Build meaningful relationships"},
-            {"number": "Create", "label": "Build amazing projects"},
-            {"number": "Share", "label": "Contribute to open source"}
+            {"number": "Create", "label": "Realize new ideas and creativity"},
+            {"number": "Share", "label": "Participate in discussions and contribute to open source projects"}
           ]
         },
         "get_involved": {
           "id": "get-involved",
-          "title": "Get Involved",
+          "title": "Join Us",
           "content": [
             "Join us in our mission to make programming and open source accessible to everyone. Whether you're a beginner or an expert, there's a place for you in our community.",
             "Visit our website at <a href=\"https://codekitchen.community\" target=\"_blank\">codekitchen.community</a> to learn more about upcoming events and how to get involved.",
@@ -203,15 +203,6 @@
             {"number": "创造", "label": "实现新的想法和创意"},
             {"number": "分享", "label": "参与讨论并贡献开源项目"}
           ]
-        },
-        "get_involved": {
-          "id": "get-involved",
-          "title": "Join Us",
-          "content": [
-            "加入我们的使命，让编程和开源对每个人都变得可及。无论你是初学者还是专家，在我们的社区中都有你的位置。",
-            "访问我们的网站 <a href=\"https://codekitchen.community\" target=\"_blank\">codekitchen.community</a> 了解更多即将举行的活动以及如何参与。",
-            "我们定期组织研讨会、黑客马拉松和聚会，将开发者聚集在一起，促进学习和协作。"
-          ]
         }
       }
     }
@@ -219,18 +210,20 @@
   "code_of_conduct": {
     "en": {
       "title": "Code of Conduct",
-      "sections": {
-        "pledge": {
+      "sections": [
+        {
           "id": "our-pledge",
           "title": "Our Pledge",
+          "type": "section",
           "content": [
             "We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.",
             "We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community."
           ]
         },
-        "standards": {
+        {
           "id": "our-standards",
           "title": "Our Standards",
+          "type": "section",
           "content": [
             "Examples of behavior that contributes to a positive environment for our community include:"
           ],
@@ -240,52 +233,58 @@
           ],
           "contact_info": "• The use of sexualized language or imagery, and sexual attention or advances of any kind<br>• Trolling, insulting or derogatory comments, and personal or political attacks<br>• Public or private harassment<br>• Publishing others' private information, such as a physical or email address, without their explicit permission<br>• Other conduct which could reasonably be considered inappropriate in a professional setting"
         },
-        "enforcement_responsibilities": {
+        {
           "id": "enforcement-responsibilities",
           "title": "Enforcement Responsibilities",
+          "type": "section",
           "content": [
             "Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.",
             "Community leaders have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate."
           ]
         },
-        "scope": {
+        {
           "id": "scope",
           "title": "Scope",
+          "type": "section",
           "content": [
             "This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces."
           ]
         },
-        "enforcement": {
+        {
           "id": "enforcement",
           "title": "Enforcement",
+          "type": "section",
           "content": [
             "Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at <a href=\"mailto:hey@greyli.com\">hey@greyli.com</a>.",
             "All complaints will be reviewed and investigated promptly and fairly. All community leaders are obligated to respect the privacy and security of the reporter of any incident."
           ]
         },
-        "attribution": {
+        {
           "id": "attribution",
           "title": "Attribution",
+          "type": "section",
           "content": [
             "This Code of Conduct is adapted from the <a href=\"https://www.contributor-covenant.org/\" target=\"_blank\">Contributor Covenant</a>, version 2.1, available at <a href=\"https://www.contributor-covenant.org/version/2/1/code_of_conduct.html\" target=\"_blank\">https://www.contributor-covenant.org/version/2/1/code_of_conduct.html</a>."
           ]
         }
-      }
+      ]
     },
     "zh": {
       "title": "行为准则",
-      "sections": {
-        "pledge": {
+      "sections": [
+        {
           "id": "our-pledge",
           "title": "我们的承诺",
+          "type": "section",
           "content": [
             "作为成员、贡献者和领导者，我们承诺让社区的每一个人都不受骚扰，无论年龄、体型、明显或不明显的残疾、民族、性别特征、性别认同和表达、经验水平、教育程度、社会经济地位、国籍、个人外表、种族、宗教或性取向和性向认同如何。",
             "我们承诺以促进开放、友好、多元、包容和健康的社区的方式行事和互动。"
           ]
         },
-        "standards": {
+        {
           "id": "our-standards",
           "title": "我们的标准",
+          "type": "section",
           "content": [
             "有助于为我们的社区创造积极环境的行为包括："
           ],
@@ -295,37 +294,41 @@
           ],
           "contact_info": "• 使用色情语言或图像，以及任何形式的性关注或性暗示<br>• 恶意评论、侮辱性或贬损性评论，以及个人或政治攻击<br>• 公开或私下骚扰<br>• 未经明确许可，发布他人的私人信息，如物理地址或电子邮件地址<br>• 在专业环境中可能被合理认为不当的其他行为"
         },
-        "enforcement_responsibilities": {
+        {
           "id": "enforcement-responsibilities",
           "title": "执行责任",
+          "type": "section",
           "content": [
             "社区领导者有责任澄清和执行我们的可接受行为标准，并将对他们认为不当、威胁、冒犯或有害的任何行为采取适当和公平的纠正措施。",
             "社区领导者有权利和责任删除、编辑或拒绝不符合本行为准则的评论、提交、代码、wiki编辑、问题和其他贡献，并在适当时传达审核决定的原因。"
           ]
         },
-        "scope": {
+        {
           "id": "scope",
           "title": "适用范围",
+          "type": "section",
           "content": [
             "本行为准则适用于所有社区空间，也适用于个人在公共空间正式代表社区时。"
           ]
         },
-        "enforcement": {
+        {
           "id": "enforcement",
           "title": "执行",
+          "type": "section",
           "content": [
             "可以通过 <a href=\"mailto:hey@greyli.com\">hey@greyli.com</a> 向负责执行的社区领导者报告辱骂、骚扰或其他不可接受的行为。",
             "所有投诉都将得到及时和公平的审查和调查。所有社区领导者都有义务尊重任何事件报告者的隐私和安全。"
           ]
         },
-        "attribution": {
+        {
           "id": "attribution",
           "title": "来源",
+          "type": "section",
           "content": [
             "本行为准则改编自<a href=\"https://www.contributor-covenant.org/\" target=\"_blank\">贡献者契约</a>，版本2.1，可在 <a href=\"https://www.contributor-covenant.org/version/2/1/code_of_conduct.html\" target=\"_blank\">https://www.contributor-covenant.org/version/2/1/code_of_conduct.html</a> 找到。"
           ]
         }
-      }
+      ]
     }
   },
   "ui_text": {
