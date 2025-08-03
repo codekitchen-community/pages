@@ -137,7 +137,7 @@
       "title": "代码厨房社区",
       "sections": {
         "intro": {
-          "content": "代码厨房（CodeKitchen Community）是一个由编程和和开源爱好者组成的社区。社区的主体是 <a href=\"https://codekitchen.community\" target=\"_blank\">https://codekitchen.community</a> 网站。"
+          "content": "代码厨房（CodeKitchen Community）是一个由编程和和开源爱好者组成的社区。社区的主体是 <a href=\"https://codekitchen.community\">https://codekitchen.community</a> 网站。"
         },
         "about_us": {
           "id": "about-us",
