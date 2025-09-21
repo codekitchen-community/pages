@@ -159,8 +159,8 @@
           "content": [
             "<strong>开源松：一起来做开源项目吧！</strong>",
             "开源松（Song of Open Source）是一个鼓励和帮助大家参与开源项目、推动开源项目发展、孵化项目 idea 的活动。",
-            "目前为止，我们已经举办了六次代码厨房开源松。每一期开源松，我们会邀请或召集开源项目参加，项目维护者会创建任务并担任导师，帮助贡献者完成一次开源贡献。",
-            "如果你有开源项目想要加入，欢迎来 <a href=\"https://codekitchen.community/t/topic/1159\" target=\"_blank\">这里</a> 报名。想要参与开源松的朋友可以关注我们的社交媒体，以便了解最新的开源松动态。"
+            "目前为止，我们已经举办了 7 次代码厨房开源松。每一期开源松，我们会邀请或召集开源项目参加，项目维护者会创建任务并担任导师，帮助贡献者完成一次开源贡献。",
+            "如果你有开源项目想要加入，欢迎来 <a href=\"https://codekitchen.community/t/topic/1159\" target=\"_blank\">这里</a> 报名。想要参与开源松的朋友可以定期查看我们的<a href=\"https://codekitchen.community/c/song\" target=\"_blank\">开源松任务看板</a>，或是关注我们的社交媒体，以便了解最新的开源松动态。"
           ]
         },
         "other_events": {
@@ -176,14 +176,14 @@
         },
         "join_committee": {
           "image": "https://codekitchen.community/uploads/default/original/2X/9/9b1be299627d0ef4c0f4b3586a750f13c954de99.jpeg",
-          "alt": "厨房委员会",
+          "alt": "代码厨房组委会",
           "content": [
-            "<strong>加入厨房委员会</strong>",
-            "想帮助我们策划和组织下一个有趣的活动吗？填写下面的申请表，加入我们的志愿者团队——<em>厨房委员会</em>。",
+            "<strong>加入代码厨房组委会</strong>",
+            "想帮助我们策划和组织下一个有趣的活动吗？填写下面的申请表，加入我们的志愿者团队——<em>代码厨房组委会</em>。",
             "我们想以更开放的方式来建设社区，因此大部分的社区管理事务同时也会在网站上公开讨论。你可以阅读 <a href=\"https://codekitchen.community/c/kitchen\" target=\"_blank\">后厨分类</a> 下的主题，了解我们正在做什么。欢迎加入讨论和参与进来！"
           ],
           "cta": {
-            "text": "📝 加入厨房委员会",
+            "text": "📝 加入代码厨房组委会",
             "url": "https://jsj.top/f/LHzJBH"
           }
         },
