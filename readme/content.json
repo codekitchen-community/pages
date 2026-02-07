@@ -3,7 +3,7 @@
     "title": "CodeKitchen Community",
     "logo_url": "https://codekitchen.community/uploads/default/original/2X/a/a30744ee5e971bdbd655b1e4e972863ff2f2802c.png",
     "home_url": "https://codekitchen.community",
-    "contact_email": "gl@greyli.com",
+    "contact_email": "community@greyli.com",
     "wechat": "greylihui"
   },
   "social_links": [
@@ -15,15 +15,15 @@
       "handle": "@codekitchen-community"
     },
     {
-      "name": "Twitter",
-      "name_zh": "Twitter",
+      "name": "X",
+      "name_zh": "X",
       "url": "https://twitter.com/codekitchen_",
       "icon": "🐦",
       "handle": "@codekitchen_"
     },
     {
       "name": "Bilibili",
-      "name_zh": "哔哩哔哩",
+      "name_zh": "Bilibili",
       "url": "https://space.bilibili.com/3493077773716257",
       "icon": "📺",
       "handle": "@CodeKitchen"
@@ -38,16 +38,9 @@
     {
       "name": "WeChat",
       "name_zh": "微信公众号",
-      "url": "https://codekitchen.community/uploads/default/original/2X/3/3314010cb5868562a567841b204ca7c6224619b9.png",
+      "url": "https://greyli.com/wp-content/uploads/2026/02/wechat_official_account.jpg",
       "icon": "💬",
-      "handle": "@codekitchen"
-    },
-    {
-      "name": "Xiaohongshu",
-      "name_zh": "小红书",
-      "url": "https://www.xiaohongshu.com/user/profile/654f68070000000002029d1f",
-      "icon": "📖",
-      "handle": "@codekitchen"
+      "handle": "@Grey的代码厨房"
     }
   ],
   "readme": {
